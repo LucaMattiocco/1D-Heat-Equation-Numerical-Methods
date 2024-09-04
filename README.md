@@ -15,39 +15,26 @@ These methods are implemented in C++ using an Object-Oriented Programming (OOP) 
 
 The study is conducted with a particular focus on comparing computational results with the analytical solution.
 
-<script type="text/javascript" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-## Problem Description
-
-<script type="text/javascript" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
 ## Problem Description
 
 The problem considered in this project explores heat conduction within a wall. The setup is as follows:
 
-- The wall has a length \(L = 31 \times 10^{-2} \, \text{m}\) and is assumed to be infinite in the other directions.
-- The initial temperature of the wall is \(T_{\text{init}} = 38^\circ \, \text{C}\).
-- The surface temperatures are \(T_{\text{surf}}\) on both sides of the wall:
-  - At \(x = 0\), \(T_{\text{surf}} = T_{\infty} = 38^\circ \, \text{C}\).
-  - At \(x = L\), \(T_{\text{surf}} = 149^\circ \, \text{C}\).
-- The wall is made of a nickel steel alloy (40% nickel) with a thermal diffusivity \(D = 93 \, \text{cm}^2/\text{hr}\).
-
+- The wall has a length ![L = 31 \times 10^{-2} \, \text{m}](https://latex.codecogs.com/svg.latex?L%20%3D%2031%20%5Ctimes%2010%5E%7B-2%7D%20%5C%2C%20%5Ctext%7Bm%7D) and is assumed to be infinite in the other directions.
+- The initial temperature of the wall is ![T_{\text{init}} = 38^\circ \, \text{C}](https://latex.codecogs.com/svg.latex?T_%7B%5Ctext%7Binit%7D%7D%20%3D%2038%5E%5Ccirc%20%5C%2C%20%5Ctext%7BC%7D).
+- The surface temperatures are ![T_{\text{surf}}](https://latex.codecogs.com/svg.latex?T_%7B%5Ctext%7Bsurf%7D%7D) on both sides of the wall:
+  - At ![x = 0](https://latex.codecogs.com/svg.latex?x%20%3D%200), ![T_{\text{surf}} = T_{\infty} = 38^\circ \, \text{C}](https://latex.codecogs.com/svg.latex?T_%7B%5Ctext%7Bsurf%7D%7D%20%3D%20T_%7B%5Cinfty%7D%20%3D%2038%5E%5Ccirc%20%5C%2C%20%5Ctext%7BC%7D).
+  - At ![x = L](https://latex.codecogs.com/svg.latex?x%20%3D%20L), ![T_{\text{surf}} = 149^\circ \, \text{C}](https://latex.codecogs.com/svg.latex?T_%7B%5Ctext%7Bsurf%7D%7D%20%3D%20149%5E%5Ccirc%20%5C%2C%20%5Ctext%7BC%7D).
+- The wall is made of a nickel steel alloy (40% nickel) with a thermal diffusivity ![D = 93 \, \text{cm}^2/\text{hr}](https://latex.codecogs.com/svg.latex?D%20%3D%2093%20%5C%2C%20%5Ctext%7Bcm%7D%5E2%2F%5Ctext%7Bhr%7D).
 
 ## Heat Equation
 
 The heat equation governing this setup is derived using Fourier's Law:
 
-$$
-\frac{\partial T(x, t)}{\partial t} = D \frac{\partial^2 T(x, t)}{\partial x^2}
-$$
+![\frac{\partial T(x, t)}{\partial t} = D \frac{\partial^2 T(x, t)}{\partial x^2}](https://latex.codecogs.com/svg.latex?%5Cfrac%7B%5Cpartial%20T%28x%2C%20t%29%7D%7B%5Cpartial%20t%7D%20%3D%20D%20%5Cfrac%7B%5Cpartial%5E2%20T%28x%2C%20t%29%7D%7B%5Cpartial%20x%5E2%7D)
 
 where:
-- \(T(x,t)\) is the temperature inside the wall at position \(x\) and time \(t\),
-- \(D = \frac{\lambda}{\rho c}\) is the thermal diffusivity in \(\text{m}^2/\text{s}\), where \(\lambda\) is the thermal conductivity, \(\rho\) is the density, and \(c\) is the specific heat capacity.
+- ![T(x,t)](https://latex.codecogs.com/svg.latex?T%28x%2C%20t%29) is the temperature inside the wall at position ![x](https://latex.codecogs.com/svg.latex?x) and time ![t](https://latex.codecogs.com/svg.latex?t),
+- ![D = \frac{\lambda}{\rho c}](https://latex.codecogs.com/svg.latex?D%20%3D%20%5Cfrac%7B%5Clambda%7D%7B%5Crho%20c%7D) is the thermal diffusivity in \(\text{m}^2/\text{s}\), where \(\lambda\) is the thermal conductivity, \(\rho\) is the density, and \(c\) is the specific heat capacity.
 
 ## Structure of the Project
 
