@@ -54,4 +54,3 @@ where:
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/1D-Heat-Equation-Numerical-Methods.git
-
