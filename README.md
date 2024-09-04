@@ -21,6 +21,12 @@ The study is conducted with a particular focus on comparing computational result
 
 ## Problem Description
 
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+## Problem Description
+
 The problem considered in this project explores heat conduction within a wall. The setup is as follows:
 
 - The wall has a length \(L = 31 \times 10^{-2} \, \text{m}\) and is assumed to be infinite in the other directions.
@@ -29,6 +35,7 @@ The problem considered in this project explores heat conduction within a wall. T
   - At \(x = 0\), \(T_{\text{surf}} = T_{\infty} = 38^\circ \, \text{C}\).
   - At \(x = L\), \(T_{\text{surf}} = 149^\circ \, \text{C}\).
 - The wall is made of a nickel steel alloy (40% nickel) with a thermal diffusivity \(D = 93 \, \text{cm}^2/\text{hr}\).
+
 
 ## Heat Equation
 
