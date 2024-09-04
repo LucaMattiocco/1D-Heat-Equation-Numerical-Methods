@@ -11,11 +11,49 @@ The project solves the 1D heat equation using the following numerical methods:
 - Laasonen method
 - Crank-Nicolson method
 
-These methods are implemented in C++ using an Object-Oriented Programming (OOP) approach. Les méthodes peuvent être divisié en deux : Explicit et Implicit lesquels ont beneficié d'implementation dans des classes différentes.
-
+These methods are implemented in C++ using an Object-Oriented Programming (OOP) approach. Detailed mathematical investigations reveal that explicit methods may not be well-suited for certain scenarios due to instability, whereas implicit methods, though more complex to implement, perform better in terms of convergence and stability.
 
 The study is conducted with a particular focus on comparing computational results with the analytical solution.
 
+## Code Structure
+
+The project consists of several C++ files, each implementing various methods to solve the 1D heat equation.
+
+### Main Program (main.cpp)
+The main program initializes the simulation, calls the different numerical methods (both explicit and implicit), and saves the results in CSV files for post-processing. The methods are called for different time steps and a convergence study is done using the Laasonen method.
+
+Key functionality in `main.cpp`:
+- Initializes the temperature values and the time steps.
+- Calls explicit methods such as Richardson and Dufort-Frankel.
+- Calls implicit methods such as Laasonen and Crank-Nicholson.
+- Saves the results in CSV files for further analysis.
+
+### Initializer Class (Initializer.h and Initializer.cpp)
+The `Initializer` class is responsible for initializing and storing the time step (`deltat`), the total simulation time (`t`), and the initial temperature distribution across the points.
+
+Key methods:
+- `getT_values`: Sets up the initial temperature distribution at discrete points.
+- `gett` and `sett`: Getter and setter for the simulation time.
+- `getDeltat` and `setDeltat`: Getter and setter for the time step.
+
+### ExplicitMethods Class (ExplicitMethods.h and ExplicitMethods.cpp)
+This class implements the explicit numerical methods to solve the heat equation.
+
+Key methods:
+- `richardsonMethods`: Solves the heat equation using the Richardson explicit scheme.
+- `dufort_frankelMethods`: Solves the heat equation using the Dufort-Frankel scheme.
+- `saveCSV`: Saves the temperature distribution results into CSV files.
+
+### ImplicitMethods Class (ImplicitMethods.h and ImplicitMethods.cpp)
+This class implements the implicit numerical methods, including solving a tridiagonal system of equations using the Thomas algorithm.
+
+Key methods:
+- `laasonenMethod`: Solves the heat equation using the Laasonen implicit method.
+- `crankNicholsonMethod`: Solves the heat equation using the Crank-Nicholson scheme.
+- `thomasAlgorithm`: Implements the Thomas algorithm (Tridiagonal Matrix Algorithm) to solve tridiagonal systems.
+- `saveCSV`: Saves the temperature distribution results into CSV files.
+
+## Development Environment Software
 ## Problem Description
 
 The problem considered in this project explores heat conduction within a wall. The setup is as follows:
