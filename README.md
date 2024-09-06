@@ -11,9 +11,88 @@ The 1D heat equation is solved using the following numerical methods:
 - Laasonen method
 - Crank-Nicolson method
 
-These methods are implemented in C++ using an Object-Oriented Programming (OOP) approach. Detailed mathematical investigations suggest that explicit methods may not be well-suited for certain scenarios due to instability, whereas implicit methods, though more complex to implement, perform better in terms of convergence and stability.
+These methods are implemented in C++ using an Object-Oriented Programming (OOP) approach. This study focuses on comparing computational results with the analytical solution.
 
-This study focuses on comparing computational results with the analytical solution.
+## Numerical Methods
+
+### 1. Richardson Method (Explicit)
+
+The Richardson method is an explicit finite difference scheme. It uses forward differences for time and central differences for space, making it a straightforward but conditionally stable method. The heat equation in the Richardson method can be discretized as:
+
+$$
+\frac{T_i^{n+1} - T_i^n}{\Delta t} = D \frac{T_{i+1}^n - 2T_i^n + T_{i-1}^n}{\Delta x^2}
+$$
+
+This can be rearranged to solve for the temperature at the next time step \( T_i^{n+1} \):
+
+$$
+T_i^{n+1} = T_i^n + \beta \left( T_{i+1}^n - 2T_i^n + T_{i-1}^n \right)
+$$
+
+where \( \beta = \frac{D \Delta t}{\Delta x^2} \).
+
+**Key Point**: The Richardson method is conditionally stable and is prone to instability if \( \beta > 0.5 \).
+
+### 2. Dufort-Frankel Method (Explicit)
+
+The Dufort-Frankel method is an explicit scheme that improves stability compared to Richardson by introducing a time-splitting scheme. It discretizes the heat equation as:
+
+$$
+\frac{T_i^{n+1} - T_i^{n-1}}{2 \Delta t} = D \frac{T_{i+1}^n - 2T_i^n + T_{i-1}^n}{\Delta x^2}
+$$
+
+This can be solved for \( T_i^{n+1} \):
+
+$$
+T_i^{n+1} = \frac{2 \beta T_{i+1}^n + 2 \beta T_{i-1}^n + (1 - 2\beta) T_i^{n-1}}{1 + 2\beta}
+$$
+
+where \( \beta = \frac{D \Delta t}{\Delta x^2} \).
+
+**Key Point**: This method is more stable than the Richardson method but can be more complex due to its time-splitting nature.
+
+### 3. Laasonen Method (Implicit)
+
+The Laasonen method is an implicit scheme, meaning it is unconditionally stable. However, it requires solving a system of linear equations at each time step. The discretization of the heat equation is as follows:
+
+$$
+\frac{T_i^{n+1} - T_i^n}{\Delta t} = D \frac{T_{i+1}^{n+1} - 2T_i^{n+1} + T_{i-1}^{n+1}}{\Delta x^2}
+$$
+
+Rearranging this, we get a system of equations for \( T_i^{n+1} \), which can be written in matrix form and solved using methods such as the Thomas algorithm.
+
+**Key Point**: The Laasonen method is unconditionally stable, making it a good choice for simulations with large time steps.
+
+### 4. Crank-Nicolson Method (Implicit)
+
+The Crank-Nicolson method is a second-order accurate implicit method that averages the explicit and implicit formulations, making it both stable and more accurate. The discretization is:
+
+$$
+\frac{T_i^{n+1} - T_i^n}{\Delta t} = \frac{D}{2} \left( \frac{T_{i+1}^{n+1} - 2T_i^{n+1} + T_{i-1}^{n+1}}{\Delta x^2} + \frac{T_{i+1}^n - 2T_i^n + T_{i-1}^n}{\Delta x^2} \right)
+$$
+
+Rearranging this yields a system of equations that can be solved similarly to the Laasonen method.
+
+**Key Point**: Crank-Nicolson provides a good balance between stability and accuracy, making it one of the most popular methods for solving diffusion-type problems.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Code Structure
 
