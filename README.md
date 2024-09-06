@@ -289,12 +289,13 @@ class ExplicitMethods : public HeatEquationSolver {
 };
 ```
 
-**Refactor Repeated Logic**:
-Current Issue: Both ExplicitMethods and ImplicitMethods classes appear to have methods that follow a similar workflow (e.g., setting boundary conditions, iterating over time, solving equations).
+### Refactor Repeated Logic:
 
-Suggested Improvement: You could extract shared logic (such as time-stepping or handling boundary conditions) into a helper class or a base class to reduce code duplication.
+**Current Issue**: Both ExplicitMethods and ImplicitMethods classes appear to have methods that follow a similar workflow (e.g., setting boundary conditions, iterating over time, solving equations).
 
-Benefit: This would make the code more DRY (Don’t Repeat Yourself) and easier to maintain.
+**Suggested Improvement**: You could extract shared logic (such as time-stepping or handling boundary conditions) into a helper class or a base class to reduce code duplication.
+
+**Benefit**: This would make the code more DRY (Don’t Repeat Yourself) and easier to maintain.
 
 
 
