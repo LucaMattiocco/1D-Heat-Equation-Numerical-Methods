@@ -13,6 +13,61 @@ The 1D heat equation is solved using the following numerical methods:
 
 These methods are implemented in C++ using an Object-Oriented Programming (OOP) approach. This study focuses on comparing computational results with the analytical solution.
 
+
+
+
+
+
+
+
+
+
+## Problem Description
+
+The problem considered in this project explores heat conduction within a wall. The setup is as follows:
+
+- The wall has a length $L = 31 \times 10^{-2}  \text{m}$ and is assumed to be infinite in the other directions.
+- The initial temperature of the wall is $T_{\text{init}} = 38^\circ \ \text{C}$.
+- The surface temperatures are $T_{\text{surf}}$ on both sides of the wall:
+  - At $x = 0$, $T_{\text{surf}} = T_{\infty} = 38^\circ \ \text{C}$.
+  - At $(x = L$, $T_{\text{surf}} = 149^\circ \ \text{C}$.
+- The wall is made of a nickel steel alloy (40% nickel) with a thermal diffusivity $D = 93 \ \text{cm}^2/\text{hr}$.
+  
+ <p align="center">
+  <img src="https://via.placeholder.com/500x250.png?text=Numerical+Heat+Equation+Diagram" alt="Numerical Heat Equation" width="500"/>
+</p>
+<p align="center">Numerical Heat Equation Example</p>
+
+
+
+
+
+
+
+
+
+
+## Heat Equation
+
+The heat equation governing this setup is derived using Fourier's Law:
+
+$$
+\frac{\partial T(x, t)}{\partial t} = D \frac{\partial^2 T(x, t)}{\partial x^2}
+$$
+
+Where:
+- $T(x,t)$ is the temperature inside the wall at position \(x\) and time \(t\),
+- $D = \frac{\lambda}{\rho c}$ is the thermal diffusivity in \(\text{m}^2/\text{s}\), where \(\lambda\) is the thermal conductivity, \(\rho\) is the density, and \(c\) is the specific heat capacity.
+
+
+
+
+
+
+
+
+
+
 ## Numerical Methods
 
 ### 1. Richardson Method (Explicit)
@@ -23,15 +78,15 @@ $$
 \frac{T_i^{n+1} - T_i^n}{\Delta t} = D \frac{T_{i+1}^n - 2T_i^n + T_{i-1}^n}{\Delta x^2}
 $$
 
-This can be rearranged to solve for the temperature at the next time step \( T_i^{n+1} \):
+This can be rearranged to solve for the temperature at the next time step $T_i^{n+1}$:
 
 $$
 T_i^{n+1} = T_i^n + \beta \left( T_{i+1}^n - 2T_i^n + T_{i-1}^n \right)
 $$
 
-where \( \beta = \frac{D \Delta t}{\Delta x^2} \).
+where $\beta = \frac{D \Delta t}{\Delta x^2}$.
 
-**Key Point**: The Richardson method is conditionally stable and is prone to instability if \( \beta > 0.5 \).
+**Key Point**: The Richardson method is conditionally stable and is prone to instability if $\beta > 0.5$.
 
 ### 2. Dufort-Frankel Method (Explicit)
 
@@ -41,13 +96,13 @@ $$
 \frac{T_i^{n+1} - T_i^{n-1}}{2 \Delta t} = D \frac{T_{i+1}^n - 2T_i^n + T_{i-1}^n}{\Delta x^2}
 $$
 
-This can be solved for \( T_i^{n+1} \):
+This can be solved for $T_i^{n+1}$:
 
 $$
 T_i^{n+1} = \frac{2 \beta T_{i+1}^n + 2 \beta T_{i-1}^n + (1 - 2\beta) T_i^{n-1}}{1 + 2\beta}
 $$
 
-where \( \beta = \frac{D \Delta t}{\Delta x^2} \).
+where $\beta = \frac{D \Delta t}{\Delta x^2}$.
 
 **Key Point**: This method is more stable than the Richardson method but can be more complex due to its time-splitting nature.
 
@@ -59,7 +114,7 @@ $$
 \frac{T_i^{n+1} - T_i^n}{\Delta t} = D \frac{T_{i+1}^{n+1} - 2T_i^{n+1} + T_{i-1}^{n+1}}{\Delta x^2}
 $$
 
-Rearranging this, we get a system of equations for \( T_i^{n+1} \), which can be written in matrix form and solved using methods such as the Thomas algorithm.
+Rearranging this, we get a system of equations for $T_i^{n+1}$, which can be written in matrix form and solved using methods such as the Thomas algorithm.
 
 **Key Point**: The Laasonen method is unconditionally stable, making it a good choice for simulations with large time steps.
 
@@ -76,13 +131,6 @@ Rearranging this yields a system of equations that can be solved similarly to th
 **Key Point**: Crank-Nicolson provides a good balance between stability and accuracy, making it one of the most popular methods for solving diffusion-type problems.
 
 ---
-
-
-
-
-
-
-
 
 
 
@@ -140,33 +188,41 @@ Key methods:
 - `thomasAlgorithm`: Implements the Thomas algorithm (Tridiagonal Matrix Algorithm) to solve tridiagonal systems.
 - `saveCSV`: Saves the temperature distribution results into CSV files.
 
-## Problem Description
 
-The problem considered in this project explores heat conduction within a wall. The setup is as follows:
 
-- The wall has a length $L = 31 \times 10^{-2}  \text{m}$ and is assumed to be infinite in the other directions.
-- The initial temperature of the wall is $T_{\text{init}} = 38^\circ \ \text{C}$.
-- The surface temperatures are $T_{\text{surf}}$ on both sides of the wall:
-  - At $x = 0$, $T_{\text{surf}} = T_{\infty} = 38^\circ \ \text{C}$.
-  - At $(x = L$, $T_{\text{surf}} = 149^\circ \ \text{C}$.
-- The wall is made of a nickel steel alloy (40% nickel) with a thermal diffusivity $D = 93 \ \text{cm}^2/\text{hr}$.
-  
- <p align="center">
-  <img src="https://via.placeholder.com/500x250.png?text=Numerical+Heat+Equation+Diagram" alt="Numerical Heat Equation" width="500"/>
-</p>
-<p align="center">Numerical Heat Equation Example</p>
 
-## Heat Equation
 
-The heat equation governing this setup is derived using Fourier's Law:
 
-$$
-\frac{\partial T(x, t)}{\partial t} = D \frac{\partial^2 T(x, t)}{\partial x^2}
-$$
 
-Where:
-- $T(x,t)$ is the temperature inside the wall at position \(x\) and time \(t\),
-- $D = \frac{\lambda}{\rho c}$ is the thermal diffusivity in \(\text{m}^2/\text{s}\), where \(\lambda\) is the thermal conductivity, \(\rho\) is the density, and \(c\) is the specific heat capacity.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
