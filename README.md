@@ -36,7 +36,7 @@ The problem considered in this project explores heat conduction within a wall. T
  <p align="center">
   <img src="https://via.placeholder.com/500x250.png?text=Numerical+Heat+Equation+Diagram" alt="Domain of study" width="500"/>
 </p>
-<p align="center">Numerical Heat Equation Example</p>
+<p align="center">Domain of study</p>
 
 
 
