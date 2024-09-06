@@ -271,7 +271,7 @@ While I believe the overall design is ok, there are a few potential areas of imp
 
 **Current Issue**: Both explicit and implicit methods work towards the same goal (solving the heat equation). However, they reside in separate classes without a shared interface.
 
-**Suggested Improvement**: You could introduce a base class or an interface, such as `HeatEquationSolver`, that both `ExplicitMethods` and `ImplicitMethods` inherit from. This would provide a unified way to call any method without worrying about whether it’s explicit or implicit. For example:
+**Suggested Improvement**: One could introduce a base class or an interface, such as `HeatEquationSolver`, that both `ExplicitMethods` and `ImplicitMethods` inherit from. This would provide a unified way to call any method without worrying about whether it’s explicit or implicit. For example:
 
 ```cpp
 class HeatEquationSolver {
@@ -293,7 +293,7 @@ class ExplicitMethods : public HeatEquationSolver {
 
 **Current Issue**: Both ExplicitMethods and ImplicitMethods classes appear to have methods that follow a similar workflow (e.g., setting boundary conditions, iterating over time, solving equations).
 
-**Suggested Improvement**: You could extract shared logic (such as time-stepping or handling boundary conditions) into a helper class or a base class to reduce code duplication.
+**Suggested Improvement**: One could extract shared logic (such as time-stepping or handling boundary conditions) into a helper class or a base class to reduce code duplication.
 
 **Benefit**: This would make the code more DRY (Don’t Repeat Yourself) and easier to maintain.
 
