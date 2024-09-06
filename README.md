@@ -30,7 +30,7 @@ The problem considered in this project explores heat conduction within a wall. T
 - The initial temperature of the wall is $T_{\text{init}} = 38^\circ \ \text{C}$.
 - The surface temperatures are $T_{\text{surf}}$ on both sides of the wall:
   - At $x = 0$, $T_{\text{surf}} = T_{\infty} = 38^\circ \ \text{C}$.
-  - At $(x = L$, $T_{\text{surf}} = 149^\circ \ \text{C}$.
+  - At $x = L$, $T_{\text{surf}} = 149^\circ \ \text{C}$.
 - The wall is made of a nickel steel alloy (40% nickel) with a thermal diffusivity $D = 93 \ \text{cm}^2/\text{hr}$.
   
  <p align="center">
@@ -56,8 +56,8 @@ $$
 $$
 
 Where:
-- $T(x,t)$ is the temperature inside the wall at position \(x\) and time \(t\),
-- $D = \frac{\lambda}{\rho c}$ is the thermal diffusivity in \(\text{m}^2/\text{s}\), where \(\lambda\) is the thermal conductivity, \(\rho\) is the density, and \(c\) is the specific heat capacity.
+- $T(x,t)$ is the temperature inside the wall at position $x$ and time $t$,
+- $D = \frac{\lambda}{\rho c}$ is the thermal diffusivity in $\text{m}^2/\text{s}$, where $\lambda$ is the thermal conductivity, $\rho$ is the density, and $c$ is the specific heat capacity.
 
 
 
