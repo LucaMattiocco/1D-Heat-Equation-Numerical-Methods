@@ -265,7 +265,7 @@ To remove all `*.csv` and `*.o` files generated during compilation, use the foll
 
 ## Suggestions for Improvement
 
-While the overall design is solid, there are a few potential areas of improvement:
+While I believe the overall design is ok, there are a few potential areas of improvement:
 
 ### Unifying Explicit and Implicit Methods into a Common Interface:
 
@@ -281,13 +281,15 @@ public:
 ```
 Then, both ExplicitMethods and ImplicitMethods could implement this interface:
 
+```cpp
 class ExplicitMethods : public HeatEquationSolver {
     std::vector<double> solve(double deltax, int numberOfPoints, double tsurf, double tinit, double D, double deltat, double t, std::vector<double> temperatureInit) override {
         // Call richardsonMethods or dufort_frankelMethods
     }
 };
+```
 
-Refactor Repeated Logic:
+**Refactor Repeated Logic**:
 Current Issue: Both ExplicitMethods and ImplicitMethods classes appear to have methods that follow a similar workflow (e.g., setting boundary conditions, iterating over time, solving equations).
 
 Suggested Improvement: You could extract shared logic (such as time-stepping or handling boundary conditions) into a helper class or a base class to reduce code duplication.
