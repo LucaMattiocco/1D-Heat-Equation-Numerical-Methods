@@ -34,7 +34,7 @@ The problem considered in this project explores heat conduction within a wall. T
 - The wall is made of a nickel steel alloy (40% nickel) with a thermal diffusivity $D = 93 \ \text{cm}^2/\text{hr}$.
   
  <p align="center">
-  <img src="https://via.placeholder.com/500x250.png?text=Numerical+Heat+Equation+Diagram" alt="Numerical Heat Equation" width="500"/>
+  <img src="https://via.placeholder.com/500x250.png?text=Numerical+Heat+Equation+Diagram" alt="Domain of study" width="500"/>
 </p>
 <p align="center">Numerical Heat Equation Example</p>
 
@@ -258,7 +258,8 @@ A Makefile is included to simplify the compilation process.
 ### Cleaning Up:
 
 To remove all `*.csv` and `*.o` files generated during compilation, use the following command:  
-  ``` make clean
+```bash
+ make clean
 ```
 
 
